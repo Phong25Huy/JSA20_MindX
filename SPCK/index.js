@@ -19,16 +19,33 @@ function renderProduct(product_info) {
     for (var index in product_info) {
         console.log(product_info[index].name)
         htmlelement += `
-                        <div class ="product">
+                        <div class ="product col-3">
                             <img src="${product_info[index].image}" alt="" id = "image">
                             <p id ="name">${product_info[index].name}</p>
                             <div id ="rate">
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+                            
                             </div>
-                            <h3 id = price>${product_info[index].price}</h3>
-                            <p id = "sale">${product_info[index].sale}</p>
+                            <div class ="price" style ="display:flex;">
+                                <div class ="price2">
+                                    <p id = price>${product_info[index].price}</p>
+                                    <span>đ<span>
+                                </div>
+                                <button id ="add_product" alt ="thêm vào giỏ hàng">Thêm</button>
+                            </div>
+                            <div class="sale">
+                        
+                    
+                                <p id = "sale">${product_info[index].sale}</p>
+                                
+                            </div>
                             <div class = "line"></div>
                             <div class ="deli">
-                                <img src="" alt="">
+                                <img src="./Asset/index/picture/deli_morning.png" alt="">
                                 <span id ="delivery_time">${product_info[index].delivery_time}</span>
                             </div>
                         </div>`

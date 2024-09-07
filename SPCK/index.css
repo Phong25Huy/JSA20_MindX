@@ -363,7 +363,7 @@ input:focus{
     font-weight: 500;
     line-height: 150%;
 }
-.categories a{
+.categories button{
     width: 100px;
 }
 .uk-modal-dialog{
@@ -375,7 +375,7 @@ svg{
     width: 32px; 
     height: 32px; 
 }
-.Topdeal{
+.all_product{
     padding: 16px;
     display: flex;
     flex-direction: column;
@@ -388,36 +388,89 @@ svg{
     justify-content: space-between;
 }
 #list_product_topdeal{
+    margin: 0 auto;
     box-sizing: border-box;
     display: flex;
     width: 1106px;
-    gap:8px;
     transition: 0.5s ease-in-out;
 }
-.Topdeal .product{
+.all_product .product{
     display: flex;
-    flex-direction: column;
-    width: 177.667px;
+    flex-direction: column; 
     border: 1px solid rgb(235, 235, 240);
     border-radius: 8px;
-    padding: 8px;
+    padding: 12px;
 }
-.Topdeal .product:hover{
+.all_product .product:hover{
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 20px;
 }
 #name{
     overflow: hidden;
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 400;
     line-height: 150%;
     margin: 0px;
     word-break: break-word;
 }
-#price{
-    margin-top: 44px;
+.price{
     text-align: left;
-    font-size: 16px;
     line-height: 150%;
-    font-weight: 600;
+    height: 50px;
+    justify-content: space-between;
 }
+.price p{
+    margin:auto 0;
+    text-align: center;
+    height: 25px;
+    font-size: 20px;
+    font-weight: 600;
 
+}
+.price #add_product{
+    border-radius: 8px;
+    padding: 5px 8px;
+    margin: auto 0;
+    height: 34px;
+    background: rgb(10, 104, 255); 
+    color: white;
+    transition: 0.2s ease-in-out;
+}
+.price #add_product:hover{
+    padding: 6px 10px;
+    box-shadow: rgba(0, 55, 255, 0.374) 0px 0px 20px;
+}
+.line{
+    width: 100%;
+    height: 0.8px;
+    background-color:rgb(235, 235, 240) ;
+}
+.deli{
+    align-items: center;
+}
+.deli img{
+    width: 36px;
+}
+#delivery_time{
+    font-size: 13px;
+    font-weight: 500;
+    color:rgb(125, 125, 126) ;
+    margin-top: 2px;
+}
+.price2{
+    display: flex;
+}
+.price2 span{
+    text-decoration: underline;
+    font-size: 12px;
+}
+#sale{
+    font-size: 13px;
+    font-weight: 500;
+    width: 50px;
+    background-color: rgba(144, 144, 144, 0.141);
+    padding: 0 10px;
+    border-radius:  4px;
+}
+#rate i{
+    font-weight: 20px;
+}
