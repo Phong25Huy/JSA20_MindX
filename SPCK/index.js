@@ -1,0 +1,52 @@
+var generate_modal = function (e) {
+    UIkit.modal(`<div id="modal-center" class="uk-flex-top" style ="background-color: none;" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" style ="background-color: none;">
+
+        <img src="./Asset/index/picture/modal_close.png" class="uk-modal-close-default" type = "button" alt="">
+
+        <img src="./Asset/index/picture/modal.png" alt="">
+
+    </div>
+</div>`).show();
+}
+$('.my-class').slick({
+    slidesToShow: 3
+});
+
+function renderProduct(product_info) {
+    var productElement = document.getElementById("list_product_topdeal");
+    var htmlelement = "";
+    for (var index in product_info) {
+        console.log(product_info[index].name)
+        htmlelement += `
+                        <div class ="product">
+                            <img src="${product_info[index].image}" alt="" id = "image">
+                            <p id ="name">${product_info[index].name}</p>
+                            <div id ="rate">
+                            </div>
+                            <h3 id = price>${product_info[index].price}</h3>
+                            <p id = "sale">${product_info[index].sale}</p>
+                            <div class = "line"></div>
+                            <div class ="deli">
+                                <img src="" alt="">
+                                <span id ="delivery_time">${product_info[index].delivery_time}</span>
+                            </div>
+                        </div>`
+
+    }
+
+    productElement.innerHTML = htmlelement
+    
+}
+axios.get("https://66c989ed8a477f50dc30e938.mockapi.io/list_product").then(function (data) {
+    product_info = data.data
+    renderProduct(product_info)
+    $(document).ready(function(){
+        $('.my-class').slick({
+            slidesToShow:6
+        });
+    });
+})
+
+
+generate_modal()

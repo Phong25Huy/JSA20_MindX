@@ -283,6 +283,9 @@ input:focus{
 }
 .sidebar2{
     width: 1138px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 .sidebar2 .slider{
     display: flex;
@@ -362,5 +365,59 @@ input:focus{
 }
 .categories a{
     width: 100px;
+}
+.uk-modal-dialog{
+    width: 430px;
+    background-color: rgba(0,0,0,0);
+}
+svg{
+    cursor:pointer; 
+    width: 32px; 
+    height: 32px; 
+}
+.Topdeal{
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    background: rgb(255, 255, 255);
+    gap: 12px;
+    border-radius: 8px;
+}
+.Topdeal .top{
+    display: flex;
+    justify-content: space-between;
+}
+#list_product_topdeal{
+    box-sizing: border-box;
+    display: flex;
+    width: 1106px;
+    gap:8px;
+    transition: 0.5s ease-in-out;
+}
+.Topdeal .product{
+    display: flex;
+    flex-direction: column;
+    width: 177.667px;
+    border: 1px solid rgb(235, 235, 240);
+    border-radius: 8px;
+    padding: 8px;
+}
+.Topdeal .product:hover{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 20px;
+}
+#name{
+    overflow: hidden;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 150%;
+    margin: 0px;
+    word-break: break-word;
+}
+#price{
+    margin-top: 44px;
+    text-align: left;
+    font-size: 16px;
+    line-height: 150%;
+    font-weight: 600;
 }
 

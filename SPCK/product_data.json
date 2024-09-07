@@ -1,18 +1,12 @@
 [
     {
+        "id": 1,
         "name": "Iphone",
         "price": 1000 ,
-        "id": 1,
         "categories": "điện tử",
         "image": "https://salt.tikicdn.com/ts/tikimsp/ee/10/70/1d457748b261c5499b4814a11ed85488.jpg" ,
-        "sale": 0 
-    },
-    {
-        "name": "Iphone1",
-        "price": 2000 ,
-        "id": 3,
-        "categories": "điện tử",
-        "image": "https://salt.tikicdn.com/ts/tikimsp/ee/10/70/1d457748b261c5499b4814a11ed85488.jpg" ,
-        "sale": 0 
+        "sale": 0, 
+        "rate": 0,
+        "time_delivery": "thứ 3 tuần sau"
     }
 ]
