@@ -51,18 +51,11 @@ function renderProduct(product_info) {
                         </div>`
 
     }
-
     productElement.innerHTML = htmlelement
-    
 }
 axios.get("https://66c989ed8a477f50dc30e938.mockapi.io/list_product").then(function (data) {
     product_info = data.data
     renderProduct(product_info)
-    $(document).ready(function(){
-        $('.my-class').slick({
-            slidesToShow:6
-        });
-    });
 })
 
 
