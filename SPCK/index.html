@@ -72,12 +72,11 @@
                                 <span>Trang chủ</span>
                             </button>
                         </a>
-                        <a href="">
-                            <button id="user">
+                            <button onclick ="generate_modal_account()" id="user">
                                 <img src="./Asset/index/picture/user.png" alt="">
                                 <span style="color:grey">Tài khoản</span>
                             </button>
-                        </a>
+                        
                         <div class="giohang">
                             <div class="col_line"></div>
                             <a href="">
@@ -149,13 +148,12 @@
                     <span>Giá siêu rẻ</span>
                 </div>
             </div>
-
+            
         </a>
     </div>
     <main>
         <div class="b_container">
-
-            <div class="sidebar1">
+            <div class="sidebar1 d-none d-xl-block">
                 <p>Danh mục</p>
                 <div class="part">
                     <a href="">
@@ -332,61 +330,61 @@
                     </div>
                 </div>
                 <div class ="categories">
-                    <button id ="topdeal">
-                        <div class ="part " data-bs-toggle="collapse" data-bs-target="#all_product_td" aria-expanded="false" aria-controls="all_product_td"> 
+                    <button  onclick="filter('topdeal')" id="topdeal">
+                        <div class ="part "> 
                             <img src="./Asset/index/picture/categories/1.png" alt="">
                             <span style ="color:rgb(217, 56, 67);">TOP DEAL</span>
                         </div>
                     </button>
-                    <button id ="trading">
+                    <button id ="trading" onclick="filter('trading')">
                         <div class ="part">
                             <img src="./Asset/index/picture/categories/2.png" alt="">
                             <span >Tiki Trading</span>
                         </div>
                     </button>
-                    <button id ="coupon">
+                    <button id ="coupon" onclick="filter('coupon')">
                         <div class ="part">
                             <img src="./Asset/index/picture/categories/3.png" alt="">
                             <span >Coupon siêu hot</span>
                         </div>
                     </button>
-                    <button id ="xakho">
+                    <button id ="xakho" onclick="filter('xakho')">
                         <div class ="part">
                             <img src="./Asset/index/picture/categories/4.png" alt="">
                             <span >Xả kho giảm nửa giá</span>
                         </div>
                     </button>
-                    <button id ="hangngoai">
+                    <button id ="hangngoai" onclick="filter('hangngoai')">
                         <div class ="part">
                             <img src="./Asset/index/picture/categories/5.png" alt="">
                             <span >Hàng ngoại giá hot</span>
                         </div>
                     </button>
-                    <button id ="mechambe">
+                    <button id ="mechambe" onclick="filter('mechambe')">
                         <div class ="part">
                             <img src="./Asset/index/picture/categories/6.png" alt="">
                             <span >Cùng mẹ chăm bé</span>
                         </div>
                     </button>
-                    <button id ="book">
+                    <button id ="book" onclick="filter('book')">
                         <div class ="part">
                             <img src="./Asset/index/picture/categories/7.png" alt="">
                             <span >Mọt sách Tiki</span>
                         </div>
                     </button>
-                    <button id ="technology">
+                    <button id ="technology" onclick="filter('technology')">
                         <div class ="part">
                             <img src="./Asset/index/picture/categories/8.png" alt="">
                             <span >Thế giới công nghệ</span>
                         </div>
                     </button>
-                    <button id ="kitchen">
+                    <button id ="kitchen" onclick="filter('kitchen')">
                         <div class ="part">
                             <img src="./Asset/index/picture/categories/9.png" alt="">
                             <span >Yêu bếp nghiện nhà</span>
                         </div>
                     </button>
-                    <button id ="beauti">
+                    <button id ="beauti" onclick="filter('beauti')">
                         <div class ="part">
                             <img src="./Asset/index/picture/categories/10.png" alt="">
                             <span > Khỏe đẹp toàn diện</span>
@@ -396,12 +394,8 @@
                 </div>
                 <div class ="all_product" id ="all_product_td">
                     <div class ="top">
-                        <img  style = "width:204px;" src="" alt="" id ="categories_img">
-                        <span id ="categories_name">.</span>
+                        <span id ="categories_name">Danh sách sản phẩm</span>
                         <a href="" style ="font-weight: 500;">Xem tất cả</a>
-                    </div>
-                    <div class="sale">
-                        <span></span>
                     </div>
                     <div id="list_product_topdeal" class="my-class row align-items-start">
                          
@@ -440,6 +434,8 @@
    
 
     <script src="index.js"></script>
+    <script src="signin.js"></script>
+    <script src="signup.js"></script>
 </body>
 
 </html>
