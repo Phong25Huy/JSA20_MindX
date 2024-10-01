@@ -1,6 +1,7 @@
 
 
-function signup(){
+document.getElementById("form-signup").addEventListener("submit", function(e){
+    e.preventDefault();
     var input_phone = document.getElementById("tel").value
     var input_email_signup = document.getElementById("email_signup").value
     var input_password = document.getElementById("password_signup").value
@@ -33,13 +34,15 @@ function signup(){
                 email:input_email_signup,
                 password:input_password
             }
+            console.log(accountNew)
+            console.log(account_list)
             account_list.push(accountNew)
             document.getElementById("tel").classList.remove("is-invalid")
             document.getElementById("tel-feedback").innerHTML = ""
             document.getElementById("email_signup").classList.remove("is-invalid")
             document.getElementById("email-feedback_signup").innerHTML = ""
-            console.log(account_list)
-            generate_modal_account()
+            
+            // window.location.href = "signin.html"
         }
         
         else{
@@ -94,4 +97,4 @@ function signup(){
             document.getElementById("cf_pass-feedback").innerHTML=""
         }
     }
-}
+})

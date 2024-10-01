@@ -1,17 +1,9 @@
-var account_list = [
-    {
-        phone: "0369999909",
-        email:"phongnguyenhuy63@gmail.com",
-        password:"12345678"
-    }
-]
 
-function signin(){
 
+document.getElementById("form-signin").addEventListener("submit", function (e){
+    e.preventDefault();
     var input_email = document.getElementById("email").value
     var input_password = document.getElementById("password").value
-    
-
     
     if (input_email == ""){
         document.getElementById("email").classList.add("is-invalid")
@@ -44,7 +36,7 @@ function signin(){
                 document.getElementById("pass-feedback").innerHTML=""
                 document.getElementById("email-feedback").innerHTML=""
                 // chyuyen user ve trang home
-                window.location.href = "signin.html"
+                
                 window.location.href = "index.html"
                 break
             } else {
@@ -63,5 +55,6 @@ function signin(){
     if(count_s == account_list.length) {
         document.getElementById("email").classList.add("is-invalid")
         document.getElementById("email-feedback").innerHTML="Email chưa được đăng kí"
+        console.log(account_list)   
     }   
-}
+})
