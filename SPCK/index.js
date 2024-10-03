@@ -1,3 +1,10 @@
+var userLogin = JSON.parse(localStorage.getItem("userlogin"))
+
+console.log(userLogin.phone)
+
+document.getElementById("account_name").innerHTML = `<p>${userLogin.phone}</p>`
+
+
 var generate_modal = function () {
     UIkit.modal(`<div id="modal-center" class="uk-flex-top" style ="background-color: none;" uk-modal>
     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" style ="background-color: none;width:430px;">
@@ -16,6 +23,7 @@ var account_list = [
         password:"12345678"
     }
 ]
+
 function filter(categories) {
     axios.get("https://66c989ed8a477f50dc30e938.mockapi.io/list_product").then(function (data) {
         var product_info = data.data

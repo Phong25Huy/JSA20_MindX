@@ -22,9 +22,16 @@ document.getElementById("form-signup").addEventListener("submit", function(e){
 
     var Exituseremail =  users.find((user) => user.email === email)
     var Exituserphone = users.find((user) => user.phone === phone)
-
+    
+    
+    document.getElementById("pass-feedback_signup").innerHTML=""
+    document.getElementById("cf_pass-feedback").innerHTML=""
+    
+    
+    document.getElementById("password_signup").classList.remove("is-invalid")
+    document.getElementById("cf_password").classList.remove("is-invalid")
     if (phone.length == 10 && email.length > 0 && password.length >= 8 && password == cf_password){
-        if (Exituseremail && Exituserphone){
+        if(Exituseremail && Exituserphone){
             document.getElementById("email_signup").classList.add("is-invalid")
             document.getElementById("email-feedback_signup").innerHTML="Email đã được đăng kí"
             document.getElementById("tel").classList.add("is-invalid")
@@ -33,16 +40,15 @@ document.getElementById("form-signup").addEventListener("submit", function(e){
         else if (Exituseremail){
             document.getElementById("email_signup").classList.add("is-invalid")
             document.getElementById("email-feedback_signup").innerHTML="Email đã được đăng kí"
-            document.getElementById("tel").classList.remove("is-invalid")
             document.getElementById("tel-feedback").innerHTML=""
+            document.getElementById("tel").classList.remove("is-invalid")
         }
         else if (Exituserphone){
             document.getElementById("tel").classList.add("is-invalid")
             document.getElementById("tel-feedback").innerHTML="Số điện thoại đã được đăng kí"
-            document.getElementById("email_signup").classList.remove("is-invalid")
             document.getElementById("email-feedback_signup").innerHTML=""
+            document.getElementById("email_signup").classList.remove("is-invalid")  
         }
-        
         else{
             users.push(user);
             localStorage.setItem("users", JSON.stringify(users));
@@ -51,10 +57,58 @@ document.getElementById("form-signup").addEventListener("submit", function(e){
             document.getElementById("email-feedback_signup").innerHTML=""
             document.getElementById("tel").classList.remove("is-invalid")
             document.getElementById("tel-feedback").innerHTML=""
+            window.location.href = "signin.html"
         }
     }
     else{
-        console.log("có lỗi")
+        if (phone.length == 0 && email.length == 0 && password.length == 0){
+            document.getElementById("tel").classList.add("is-invalid")
+            document.getElementById("tel-feedback").innerHTML="Vui lòng điền số điện thoại"
+            document.getElementById("email_signup").classList.add("is-invalid")
+            document.getElementById("email-feedback_signup").innerHTML="Vui lòng điền email"
+            document.getElementById("password_signup").classList.add("is-invalid")
+            document.getElementById("pass-feedback_signup").innerHTML="Vui lòng điền password"
+        }
+        else if (phone.length == 0){
+            document.getElementById("tel").classList.add("is-invalid")
+            document.getElementById("tel-feedback").innerHTML="Vui lòng điền số điện thoại"
+            document.getElementById("password_signup").classList.remove("is-invalid")
+            document.getElementById("pass-feedpack_signup").innerHTML=""
+            document.getElementById("email").classList.remove("is-invalid")
+            document.getElementById("email-feedback_signup").innerHTML=""
+        }
+        else if (phone.length != 10){
+            document.getElementById("tel").classList.add("is-invalid")
+            document.getElementById("tel-feedback").innerHTML="Vui lòng điền đúng định dạng số điện thoại"
+        }
+        else if(email.length == 0){
+            document.getElementById("email_signup").classList.add("is-invalid")
+            document.getElementById("email-feedback_signup").innerHTML="Vui lòng điền Email"
+            document.getElementById("password_signup").classList.remove("is-invalid")
+            document.getElementById("pass-feedpack_signup").innerHTML=""
+            document.getElementById("tel").classList.remove("is-invalid")
+            document.getElementById("tel-feedback").innerHTML=""
+        }
+        else if(password.length == 0){
+            document.getElementById("password_signup").classList.add("is-invalid")
+            document.getElementById("pass-feedpack_signup").innerHTML="Vui lòng điền password"
+            document.getElementById("tel").classList.remove("is-invalid")
+            document.getElementById("tel-feedback").innerHTML=""
+            document.getElementById("email").classList.remove("is-invalid")
+            document.getElementById("email-feedback_signup").innerHTML=""
+        }
+        else if(password.length < 8){
+            document.getElementById("password_signup").classList.add("is-invalid")
+            document.getElementById("pass-feedback_signup").innerHTML="Password cần tối thiểu 8 kí tự"
+        }
+        if (cf_password != password){
+            document.getElementById("cf_password").classList.add("is-invalid")
+            document.getElementById("cf_pass-feedback").innerHTML="Password không trùng khớp"
+        }
+        if (cf_password == password){
+            document.getElementById("cf_password").classList.remove("is-invalid")
+            document.getElementById("cf_pass-feedback").innerHTML=""
+        }
     }
     
 
