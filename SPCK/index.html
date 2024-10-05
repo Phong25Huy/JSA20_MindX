@@ -39,12 +39,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css"
         integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">    
     <!-- index.css -->
     <link rel="stylesheet" href="index.css">
     
 </head>
 
-<body>
+<body data-aos="fade-up"
+data-aos-duration="3000">
     <!-- modal -->
     
     <header>
@@ -83,7 +85,7 @@
                         
                         <div class="giohang">
                             <div class="col_line"></div>
-                            <a href="">
+                            <a href="./order.html">
                                 <button id="cart">
                                     <img src="./Asset/index/picture/cart.png" alt="">
                                     <span id="soluong">0</span>
@@ -436,10 +438,12 @@
         integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
    
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <script src="index.js"></script>
-    <script src="signin.js"></script>
-    <script src="signup.js"></script>
+    
 </body>
 
 </html>

@@ -1,13 +1,13 @@
 var userLogin = JSON.parse(localStorage.getItem("userlogin"))
 
-console.log(userLogin.phone)
-
-document.getElementById("account_name").innerHTML = `<p>${userLogin.phone}</p>`
-
+// console.log(userLogin.phone)
+if (userLogin){
+    document.getElementById("account_name").innerHTML = `<p>${userLogin.phone}</p>`
+}
 
 var generate_modal = function () {
     UIkit.modal(`<div id="modal-center" class="uk-flex-top" style ="background-color: none;" uk-modal>
-    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" style ="background-color: none;width:430px;">
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" style ="background-color: none;width:430px;bottom:150px;">
 
         <img src="./Asset/index/picture/modal_close.png" class="uk-modal-close-default" type = "button" alt="">
 
@@ -47,7 +47,7 @@ function filter(categories) {
     })
   
 }
-
+var countproduct = 0
 
 function renderProduct(product_info) {
     var productElement = document.getElementById("list_product_topdeal");
@@ -70,7 +70,7 @@ function renderProduct(product_info) {
                                     <p id = price>${product_info[index].price}</p>
                                     <span>đ<span>
                                 </div>
-                                <button id ="add_product" alt ="thêm vào giỏ hàng">Thêm</button>
+                                <button id ="add_product" onclick="addProduct(${product_info[index].id})" alt ="thêm vào giỏ hàng">Thêm</button>
                             </div>
                             <div class="sale">
                         
@@ -94,5 +94,15 @@ axios.get("https://66c989ed8a477f50dc30e938.mockapi.io/list_product").then(funct
     renderProduct(product_info)
 })
 
+var addProduct = function(id){
+    countproduct += 1
+    document.getElementById("soluong").innerHTML = countproduct
+    var CartID = JSON.parse(localStorage.getItem("CartIDlist")) || []
+    if (CartID){
+        const Newdata = [...CartID,id]
+        localStorage.setItem("CartIDlist",JSON.stringify(Newdata))
+    }
+    
 
+}
 generate_modal()

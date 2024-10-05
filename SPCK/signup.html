@@ -38,12 +38,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css"
         integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- index.css -->
     <link rel="stylesheet" href="signup.css">
     
 </head>
 
-<body>
+<body data-aos="fade-up"
+data-aos-duration="3000">
     <!-- modal -->
     
     <header>
@@ -187,7 +189,9 @@
             
             <img src="./Asset/index/picture/signin_signup.png" style ="border-radius: 0 20px 20px 0;width: 325px;" alt="">
         </form>
-    
-    <script src ="index.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <script src ="signup.js"></script>
 </body>
