@@ -18,9 +18,9 @@ function renderProductList(data) {
               <td>${data[index].price}</td>
               <td>${data[index].price}</td>
               <td>
-                  <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
+                  <button class="btn btn-sm btn-outline-danger" onclick ="delete_product()"><i class="bi bi-trash"></i></button>
               </td>
-          </tr>
+            </tr>
     `;
   }
 
@@ -31,7 +31,6 @@ axios
   .get("https://66c989ed8a477f50dc30e938.mockapi.io/list_product")
   .then(function (data) {
     var productList = data.data;
-
     const myCart = JSON.parse(localStorage.getItem("CartIDlist")) || [];
     console.log(myCart)
     const cartData = [];

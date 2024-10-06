@@ -8,10 +8,14 @@ html{
 }
 body{
     background-color: rgb(245,245,250);
+    padding: 0;
 }
 header{
     background-color: rgb(255,255,255);
-    
+    position: sticky;
+    border-bottom: 1px solid rgb(245, 245, 250);
+    z-index: 2;
+    top:0;
 }
 button{
     border: none;
@@ -119,12 +123,16 @@ input:focus{
 #home:hover{
     background-color: rgba(10, 104, 255, 0.2);;
 }
+
 #user:hover{
     background-color: rgba(39, 39, 42, 0.12);
 }
 .giohang{
     margin-left: 12px;
     display: flex;
+}
+#cart:hover{
+    background-color: rgba(10, 104, 255, 0.2);
 }
 .col_line{
     background-color:rgb(245,245,250);
@@ -249,7 +257,7 @@ input:focus{
     max-height: 100vh;
     position: -webkit-sticky;
     position: sticky;
-    top: 0;
+    top:0;
     overflow-y: scroll;
     scrollbar-width: none;
 }
@@ -377,6 +385,7 @@ input:focus{
 }
 .uk-modal-dialog{
     width: 900px;
+    bottom:180px;
     background-color: rgba(0,0,0,0);
 }
 svg{
@@ -483,4 +492,7 @@ svg{
 }
 #rate i{
     font-weight: 20px;
+}
+#logout:hover{
+    background-color: rgba(39, 39, 42, 0.12);
 }

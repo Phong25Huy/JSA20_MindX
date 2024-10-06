@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-
+    
     <title>
         Tiki - Mua hàng online giá tốt, hàng chuẩn, ship nhanh
     </title>
@@ -67,22 +67,29 @@ data-aos-duration="3000">
                             <button id="search_find" href="">Tìm kiếm</button>
                         </a>
                     </div>
-                    <div class="more">
+                    <div class="more" id ="more">
                         <a href="">
                             <button id="home">
                                 <img src="./Asset/index/picture/home.png" alt="">
                                 <span>Trang chủ</span>
                             </button>
                         </a>
-                            <button  id="user">
-                                <a href="./signin.html" style = "display:flex">
+                            <button  id="user" style ="width: 100px;height: 42.4px;white-space: nowrap;overflow: hidden;text-overflow: ellipsis; text-overflow:clip;">
+                                <a href="./signin.html" id ="link_login" style = "display:flex">
                                     <img src="./Asset/index/picture/user.png" alt="">
-                                    <div id ="account_name" style = "color:grey;font-weight: 500;font-size: 14px;margin-left: 5px;">
+                                    <div id ="account_name" style = "color:grey;font-weight: 500;font-size: 14px;margin-left: 5px;padding-right:16px;">
                                         Tài khoản
                                     </div>
                                 </a>
                             </button>
-                        
+                        <div id = "btn_logout" style ="display: none;font-size: 20px;margin-left: 12px;">
+                                <div class="col_line"></div>
+                                
+                                    <button  onclick = "logout()" id = "logout" style ="padding: 4px 12px;">
+                                        <i class="fa-solid fa-right-from-bracket fa-rotate-by" style="color:grey; --fa-rotate-angle: 0deg;"></i>
+                                    </button>
+                                
+                        </div>
                         <div class="giohang">
                             <div class="col_line"></div>
                             <a href="./order.html">
@@ -92,6 +99,7 @@ data-aos-duration="3000">
                                 </button>
                             </a>
                         </div>
+                        
                     </div>
                 </div>
                 <div class="bot">
@@ -412,11 +420,9 @@ data-aos-duration="3000">
         </div>
 
     </main>
-
+    <div style ="height: 2px;"></div>
  
-    <footer>
-        <!-- place footer here -->
-    </footer>
+    
 
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

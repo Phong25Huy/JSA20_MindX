@@ -1,12 +1,61 @@
 var userLogin = JSON.parse(localStorage.getItem("userlogin"))
-
+var logout = function(){
+    localStorage.removeItem("userlogin")
+    window.location.href = "index.html"
+}
 // console.log(userLogin.phone)
 if (userLogin){
-    document.getElementById("account_name").innerHTML = `<p>${userLogin.phone}</p>`
+    document.getElementById("link_login").href = ""
+    document.getElementById("more").style.margin = "0"
+    document.getElementById("btn_logout").style.display = "flex"
+    document.getElementById("account_name").innerHTML = `<p style ="margin-bottom:0;">${userLogin.phone}</p>`
+    document.getElementById("user").style.width = "100px"
+    var addProduct = function(id){
+        var countproduct = JSON.parse(localStorage.getItem("countproduct"))
+        countproduct += 1
+        localStorage.setItem("countproduct",JSON.stringify(countproduct))
+        document.getElementById("soluong").innerHTML = JSON.parse(localStorage.getItem("countproduct"))
+            
+        var CartID = JSON.parse(localStorage.getItem("CartIDlist")) || []
+        if (CartID){
+            const Newdata = [...CartID,id]
+            localStorage.setItem("CartIDlist",JSON.stringify(Newdata))
+        }
+    }
+    document.getElementById("soluong").innerHTML = JSON.parse(localStorage.getItem("countproduct"))
+}
+else{
+    document.getElementById("link_login").href = "./signin.html"
+    document.getElementById("account_name").innerHTML = "Tài khoản"
+    document.getElementById("btn_logout").style.display = "none"
+    document.getElementById("more").style.margin = "0 0 0 40px"
+    document.getElementById("user").style.width = "120px"
+    
+        var addProduct = function(){
+            window.scrollTo(0,500)
+            UIkit.modal(`
+                <div id="modal-center" class="uk-flex-top" uk-modal>
+                    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" style ="background-color: white; border-radius:8px; width:430px;top:0;">
+                        <img src="./Asset/index/picture/modal_close.png" class="uk-modal-close-default" type = "button" alt="">
+                        <h4>Bạn chưa đăng nhập, cần có tài khoản để thêm sản phẩm</h4>
+                        <a href="./signin.html" style ="margin-left:175px;">  
+                            <button type="button" class="btn btn-secondary" >Đăng nhập</button>
+                        </a>
+                        <a href="./signup.html">
+                            <button type="button" class="btn btn-primary">Đăng kí</button>
+                        </a>
+                    </div>
+                </div>
+                        
+            `
+        ).show()
+        
+    }
+    
 }
 
 var generate_modal = function () {
-    UIkit.modal(`<div id="modal-center" class="uk-flex-top" style ="background-color: none;" uk-modal>
+    UIkit.modal(`<div id="modal-center" class="uk-flex-top" uk-modal>
     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" style ="background-color: none;width:430px;bottom:150px;">
 
         <img src="./Asset/index/picture/modal_close.png" class="uk-modal-close-default" type = "button" alt="">
@@ -16,6 +65,7 @@ var generate_modal = function () {
     </div>
 </div>`).show();
 }
+// generate_modal()
 var account_list = [
     {
         phone: "0369999909",
@@ -47,7 +97,7 @@ function filter(categories) {
     })
   
 }
-var countproduct = 0
+
 
 function renderProduct(product_info) {
     var productElement = document.getElementById("list_product_topdeal");
@@ -94,15 +144,5 @@ axios.get("https://66c989ed8a477f50dc30e938.mockapi.io/list_product").then(funct
     renderProduct(product_info)
 })
 
-var addProduct = function(id){
-    countproduct += 1
-    document.getElementById("soluong").innerHTML = countproduct
-    var CartID = JSON.parse(localStorage.getItem("CartIDlist")) || []
-    if (CartID){
-        const Newdata = [...CartID,id]
-        localStorage.setItem("CartIDlist",JSON.stringify(Newdata))
-    }
-    
 
-}
-generate_modal()
+
