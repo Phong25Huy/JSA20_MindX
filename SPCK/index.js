@@ -1,7 +1,7 @@
 var userLogin = JSON.parse(localStorage.getItem("userlogin"))
 var logout = function(){
     localStorage.removeItem("userlogin")
-    window.location.href = "index.html"
+    window.location.href = "signin.html"
 }
 // console.log(userLogin.phone)
 if (userLogin){
@@ -102,7 +102,19 @@ function filter(categories) {
 function renderProduct(product_info) {
     var productElement = document.getElementById("list_product_topdeal");
     var htmlelement = "";
+    
     for (var index in product_info) {
+        
+            if (product_info[index].price.length > 3){
+                var newprice = product_info[index].price.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+                
+            }
+        
+        var pricesale = Number(product_info[index].price) * (100 - Number(product_info[index].sale)) / 100
+        if (pricesale > 999){
+            var newpricesale = String(pricesale).replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+            
+        }
         htmlelement += `
                         <div class ="product col-sm-6 col-md-4 col-lg-3">
                             <img src="${product_info[index].image}" alt="" id = "image">
@@ -117,15 +129,19 @@ function renderProduct(product_info) {
                             </div>
                             <div class ="price" style ="display:flex;">
                                 <div class ="price2">
-                                    <p id = price>${product_info[index].price}</p>
+                                    <p id = price>${newprice}</p>
                                     <span>đ<span>
                                 </div>
                                 <button id ="add_product" onclick="addProduct(${product_info[index].id})" alt ="thêm vào giỏ hàng">Thêm</button>
                             </div>
-                            <div class="sale">
+                            <div class="sale" style ="display:flex;justify-content:space-between;">
                         
                     
-                                <p id = "sale">${product_info[index].sale}</p>
+                                <p id = "sale">-${product_info[index].sale}%</p>
+                                <div class ="price2">
+                                    <p style ="color:red;font-weight:500;font-size:20px;">${newpricesale}</p>
+                                    <span style ="color:red;"font-weight:500>đ<span>
+                                </div>
                                 
                             </div>
                             <div class = "line"></div>
