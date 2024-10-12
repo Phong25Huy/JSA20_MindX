@@ -35,7 +35,7 @@ else{
             window.scrollTo(0,500)
             UIkit.modal(`
                 <div id="modal-center" class="uk-flex-top" uk-modal>
-                    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" style ="background-color: white; border-radius:8px; width:430px;top:0;">
+                    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" style ="background-color: white; border-radius:8px; width:430px;top:-1000;">
                         <img src="./Asset/index/picture/modal_close.png" class="uk-modal-close-default" type = "button" alt="">
                         <h4>Bạn chưa đăng nhập, cần có tài khoản để thêm sản phẩm</h4>
                         <a href="./signin.html" style ="margin-left:175px;">  
